@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_fluter/pokemon.dart';
-import 'package:pokedex_fluter/pokemon_service.dart';
-import 'package:pokedex_fluter/result_screen.dart';
+import 'package:github_finder/usuario.dart';
+import 'package:github_finder/github_service.dart';
+import 'package:github_finder/result_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  String? pokemonName;
+  String? username;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _SearchScreenState extends State<SearchScreen> {
           child: Column(
             children: [
               Text(
-                'Busca de Pokemon',
+                'Usuário de GitHub',
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
               Container(
@@ -32,23 +32,23 @@ class _SearchScreenState extends State<SearchScreen> {
                     fontSize: 18.0,
                   ),
                   onChanged: (value) {
-                    pokemonName = value;
+                    username = value;
                   },
                 ),
               ),
               TextButton(
                 onPressed: () async {
-                  Pokemon pokemon = await PokemonService.fetchPokemon(
-                      pokemonName!.toLowerCase());
+                  Usuario usuario =
+                      await GithubService.getUsuario(username!.toLowerCase());
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
-                      return ResultScreen(pokemon: pokemon);
+                      return ResultScreen(usuario: usuario);
                     }),
                   );
                 },
                 child: Text(
-                  'Buscar Pokemon',
+                  'Buscar usuário',
                   style: TextStyle(
                     fontSize: 20.0,
                   ),

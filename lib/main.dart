@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_fluter/search_screen.dart';
+import 'package:github_finder/search_screen.dart';
 
 void main() {
   runApp(PokDex());

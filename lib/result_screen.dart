@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_fluter/pokemon.dart';
+import 'package:github_finder/usuario.dart';
 
 const kPlaceholderImg = 'images/placeholder-image.png';
-const kPokemonNameStyle = TextStyle(
+const kUsuarioNameStyle = TextStyle(
   fontSize: 30.0,
   fontWeight: FontWeight.bold,
 );
-const kPokemonAttrStyle = TextStyle(
+const kUsuarioAttrStyle = TextStyle(
   fontSize: 25.0,
 );
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({required this.pokemon});
+  const ResultScreen({required this.usuario});
 
-  final Pokemon pokemon;
+  final Usuario usuario;
 
   @override
   Widget build(BuildContext context) {
@@ -29,20 +29,18 @@ class ResultScreen extends StatelessWidget {
                 flex: 3,
                 child: FadeInImage.assetNetwork(
                   placeholder: kPlaceholderImg,
-                  image: pokemon.sprites.frontDefault!,
+                  image: usuario.picture,
                   imageScale: 0.3,
                 ),
               ),
               Expanded(
                 child: Column(
                   children: [
-                    Text(pokemon.name, style: kPokemonNameStyle),
-                    Text('Peso: ${pokemon.weight.toString()}',
-                        style: kPokemonAttrStyle),
-                    Text('Altura: ${pokemon.height.toString()}',
-                        style: kPokemonAttrStyle),
-                    Text('Tipo(s): ${pokemon.getTypes()}',
-                        style: kPokemonAttrStyle),
+                    Text(usuario.name, style: kUsuarioNameStyle),
+                    Text('Nome: ${usuario.name.toString()}',
+                        style: kUsuarioNameStyle),
+                    Text('Altura: ${usuario.id.toString()}',
+                        style: kUsuarioAttrStyle),
                   ],
                 ),
               ),

@@ -1,4 +1,4 @@
-# pokedex_fluter
+# github_finder
 
 A new Flutter project.
 
