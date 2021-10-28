@@ -17,6 +17,10 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: GithubService.getUsuario(usuario!);
+     builder: (context, AsyncSnapshot<Usuario> snapshot)  {
+       if (snapshot.connectionState == Connection.done) {
     return Scaffold(
       body: Container(
         color: Colors.grey[850],
@@ -39,7 +43,9 @@ class ResultScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(usuario.login, style: kName),
-                    Text('Id: ${usuario.id.toString()}', style: kId),
+                    Text('Id: ${snapp.shot.data?.id.toString() ?? ""}', style: kId),
+                    // REPITA ISSO PARA OS DEMAIS ATRIBUTOS
+
                     Text('Nome: ${usuario.name.toString()}', style: kInfo),
                     Text('Repositórios: ${usuario.repos.toString()}',
                         style: kInfo),
@@ -55,5 +61,10 @@ class ResultScreen extends StatelessWidget {
         ),
       ),
     );
-  }
+    );
+  } else {
+         return const Center(child: CircularProgressIndicator());
+    },
+  },
+  },
 }

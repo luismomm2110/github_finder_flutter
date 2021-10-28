@@ -47,11 +47,10 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               TextButton(
                 onPressed: () async {
-                  Usuario usuario = await GithubService.getUsuario(username!);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
-                      return ResultScreen(usuario: usuario);
+                      return ResultScreen(usuario: username!);
                     }),
                   );
                 },
