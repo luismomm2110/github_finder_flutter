@@ -22,14 +22,19 @@ class _SearchScreenState extends State<SearchScreen> {
           child: Column(
             children: [
               Text(
-                'Usuário de GitHub',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                'GitHub User Finder',
+                style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    height: 6,
+                    color: Colors.lightBlueAccent,
+                    decoration: TextDecoration.underline),
               ),
               Container(
                 padding: EdgeInsets.all(20.0),
                 child: TextField(
                   style: TextStyle(
-                    fontSize: 18.0,
+                    fontSize: 28.0,
                   ),
                   onChanged: (value) {
                     username = value;
@@ -38,8 +43,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               TextButton(
                 onPressed: () async {
-                  Usuario usuario =
-                      await GithubService.getUsuario(username!.toLowerCase());
+                  Usuario usuario = await GithubService.getUsuario(username!);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
@@ -48,7 +52,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   );
                 },
                 child: Text(
-                  'Buscar usuário',
+                  'Buscar usuário na API',
                   style: TextStyle(
                     fontSize: 20.0,
                   ),

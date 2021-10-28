@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:github_finder/search_screen.dart';
 
 void main() {
-  runApp(PokDex());
+  runApp(GithubFinder());
 }
 
-class PokDex extends StatelessWidget {
+class GithubFinder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
