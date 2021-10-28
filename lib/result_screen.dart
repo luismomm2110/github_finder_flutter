@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:github_finder/usuario.dart';
 
-const kName = TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, height: 2);
-const kInfo = TextStyle(fontSize: 25.0, color: Colors.deepPurple);
+const kName = TextStyle(
+    fontSize: 40.0,
+    fontWeight: FontWeight.bold,
+    height: 2,
+    color: Colors.blueAccent);
+const kInfo = TextStyle(fontSize: 25.0, color: Colors.cyan);
 const kPlaceholderImg = 'images/placeholder-image.png';
+const kId = TextStyle(fontSize: 25.0, color: Colors.yellow);
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({required this.usuario});
@@ -14,6 +19,7 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Colors.grey[850],
         constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
@@ -33,9 +39,13 @@ class ResultScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(usuario.login, style: kName),
-                    Text('Id: ${usuario.id.toString()}', style: kInfo),
+                    Text('Id: ${usuario.id.toString()}', style: kId),
                     Text('Nome: ${usuario.name.toString()}', style: kInfo),
+                    Text('Repositórios: ${usuario.repos.toString()}',
+                        style: kInfo),
                     Text('Seguidores: ${usuario.followers.toString()}',
+                        style: kInfo),
+                    Text('Localização: ${usuario.location.toString()}',
                         style: kInfo),
                   ],
                 ),

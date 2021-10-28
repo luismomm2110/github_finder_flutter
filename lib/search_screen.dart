@@ -17,6 +17,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Colors.grey[850],
         constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
@@ -24,18 +25,21 @@ class _SearchScreenState extends State<SearchScreen> {
               Text(
                 'GitHub User Finder',
                 style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                    height: 6,
-                    color: Colors.lightBlueAccent,
-                    decoration: TextDecoration.underline),
+                  fontSize: 35.0,
+                  fontWeight: FontWeight.bold,
+                  height: 6,
+                  color: Colors.lightBlueAccent,
+                  decoration: TextDecoration.underline,
+                ),
               ),
               Container(
                 padding: EdgeInsets.all(20.0),
                 child: TextField(
+                  cursorColor: Colors.cyan,
                   style: TextStyle(
-                    fontSize: 28.0,
-                  ),
+                      fontSize: 28.0,
+                      decorationColor: Colors.white,
+                      color: Colors.white),
                   onChanged: (value) {
                     username = value;
                   },
